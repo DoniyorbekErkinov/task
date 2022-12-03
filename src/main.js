@@ -13,16 +13,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 
+import i18 from "./locales/i18n"
 /* add icons to the library */
 library.add(faUsers)
 const pinia = createPinia()
-
-// import VueI18n from 'vue-i18n'
 
 const app = createApp(App)
 
 app.use(router)
 app.use(pinia)
-// app.use(VueI18n)
+app.use(i18)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
