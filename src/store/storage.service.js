@@ -7,11 +7,17 @@ const TokenService = {
     getToken() {
         return localStorage.getItem(TOKEN_KEY)
     },
+    removeToken() {
+        return localStorage.removeItem(TOKEN_KEY)
+    },
     setUser(userData) {
-        localStorage.setItem(USER, userData)
+        localStorage.setItem(USER, JSON.stringify(userData))
     },
     getUser() {
         return localStorage.getItem(USER)
-    }
+    },
+    removeUser() {
+        return localStorage.removeItem(USER)
+    },
 }
 export {TokenService}

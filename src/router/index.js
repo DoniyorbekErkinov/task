@@ -10,6 +10,11 @@ const routes = [
         name: 'Dashboard',
         path: '',
         component: () => import('@/pages/layout/Dashboard')
+      },
+      {
+        name: 'Users',
+        path: '/users',
+        component: () => import('@/pages/Users/List')
       }
     ]
   },

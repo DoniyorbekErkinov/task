@@ -4,9 +4,4 @@
   </div>
 </template>
 <script setup>
-import users from "@/data/users";
-import { useUserStore} from "@/store";
-const userStore = useUserStore()
-console.log(users)
-console.log(userStore.users)
 </script>
