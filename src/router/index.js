@@ -1,25 +1,54 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import LoginPage from "@/pages/Login";
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    component: () => import('@/pages/layout/MainLayout'),
+    children: [
+      {
+        name: 'Dashboard',
+        path: '',
+        component: () => import('@/pages/layout/Dashboard')
+      }
+    ]
   },
+  /**
+  * Login
+  * NotFOund
+  */
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/login',
+    name: 'login',
+    component: LoginPage,
+    meta: {
+      public: true,
+      onlyWhenLoggedOut: true
+    }
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+import { TokenService } from '@/store/storage.service'
+
+router.beforeResolve((to, from, next) => {
+  const isPublic = to.matched.some(record => record.meta.public)
+  const onlyWhenLoggedOut = to.matched.some(record => record.meta.onlyWhenLoggedOut)
+  const loggedIn = !!TokenService.getToken()
+  if(!loggedIn && !isPublic && to.name !== 'login') {
+    return next({
+          path: '/login',
+        }
+    )
+  }
+  if(loggedIn && onlyWhenLoggedOut) {
+    return next('/')
+  }
+  next()
 })
 
 export default router
