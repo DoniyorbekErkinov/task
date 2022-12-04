@@ -7,7 +7,7 @@ const students = [
         coursesLength: 3
     },
     {
-        id: 1,
+        id: 2,
         name: "Khojiakbar Erkinov",
         phone: "+998934712026",
         courses: [2, 3, 4, 6],

@@ -1,0 +1,79 @@
+{
+  "students":  [
+    {
+      "id": 1,
+      "name": "Doniyor Erkinov",
+      "phone": "+998934712026",
+      "courses": [1, 2, 3],
+      "coursesLength": 3
+    },
+    {
+      "id": 1,
+      "name": "Khojiakbar Erkinov",
+      "phone": "+998934712026",
+      "courses": [2, 3, 4, 6],
+      "coursesLength": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "canDeleted": false,
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "candidate",
+      "password": "candidate",
+      "canDeleted": false,
+      "role": "candidate"
+    },
+    {
+      "id": 3,
+      "username": "user",
+      "password": "user",
+      "canDeleted": true,
+      "role": "user"
+    }
+  ],
+  "courses": [
+  {
+    "id": 1,
+    "nameUz": "Frontend dasturlash",
+    "nameRu": "Frontend программирование",
+    "nameEn": "Frontend programming"
+  },
+  {
+    "id": 2,
+    "nameUz": "Matematika",
+    "nameRu": "Математика",
+    "nameEn": "Mathematics"
+  },
+  {
+    "id": 3,
+    "nameUz": "Backend dasturlash",
+    "nameRu": "Backend программирование",
+    "nameEn": "Backend programming"
+  },
+  {
+    "id": 4,
+    "nameUz": "IELTS",
+    "nameRu": "IELTS",
+    "nameEn": "IELTS"
+  },
+  {
+    "id": 5,
+    "nameUz": "Rus tili",
+    "nameRu": "Русский язык",
+    "nameEn": "Russian language"
+  },
+  {
+    "id": 6,
+    "nameUz": "Yapon tli",
+    "nameRu": "Японский язык",
+    "nameEn": "Japanese language"
+  }
+]
+}
