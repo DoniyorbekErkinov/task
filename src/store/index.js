@@ -2,6 +2,7 @@ import { defineStore} from "pinia";
 import users from "@/data/users";
 import courses from "@/data/courses";
 import students from "@/data/students";
+import quiz from "@/data/quiz"
 import {TokenService} from "@/store/storage.service";
 import router from "@/router";
 export const useUserStore = defineStore("UsersStore", {
@@ -9,7 +10,8 @@ export const useUserStore = defineStore("UsersStore", {
     state: () => ({
         users,
         students,
-        courses
+        courses,
+        quiz
     }),
     // ACTIONS
     actions: {
@@ -17,6 +19,7 @@ export const useUserStore = defineStore("UsersStore", {
             this.getUsers()
             this.getCourses()
             this.getStudents('maxToMin')
+            this.getQuiz()
             this.users.forEach(el => {
                 if(el.username === userForm.username && el.password === userForm.password) {
                     TokenService.setToken('123asfe654w5erwer')
@@ -29,15 +32,16 @@ export const useUserStore = defineStore("UsersStore", {
                     TokenService.setUsers(this.users)
                     TokenService.setStudents(this.students)
                     TokenService.setCourses(this.courses)
+                    TokenService.setQuiz(this.quiz)
                     router.push('/')
                 }
             })
         },
         LogOut() {
             TokenService.removeToken()
-            TokenService.removeCourses()
-            TokenService.removeStudents()
-            TokenService.removeUsers()
+            // TokenService.removeCourses()
+            // TokenService.removeStudents()
+            // TokenService.removeUsers()
             router.push('/login')
         },
         getUsers() {
@@ -76,7 +80,30 @@ export const useUserStore = defineStore("UsersStore", {
         },
         getCourses() {
                 return JSON.parse(TokenService.getCourses())
-        }
+        },
+        getQuiz() {
+            return JSON.parse(TokenService.getQuiz())
+        },
+        addQuiz(quiz) {
+            let list = JSON.parse(TokenService.getQuiz())
+            quiz.id = Math.max(...list.map(o => o.id)) + 1
+            list.push(quiz)
+            TokenService.setQuiz(list)
+            this.getQuiz()
+        },
+        deleteQuiz(id) {
+            let list = JSON.parse(TokenService.getQuiz())
+            let newList = list.filter(el => el.id !== id)
+            TokenService.setQuiz(newList)
+            this.getQuiz()
+        },
+        updateQuiz(quiz) {
+            let list = JSON.parse(TokenService.getQuiz())
+            let newList = list.filter(el => el.id !== quiz.id)
+            newList.push(quiz)
+            TokenService.setQuiz(newList)
+            this.getQuiz()
+        },
     }
     // GETTER
 })

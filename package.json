@@ -15,6 +15,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.2",
     "@headlessui/vue": "^1.7.4",
     "@heroicons/vue": "^2.0.13",
+    "@tinymce/tinymce-vue": "^4.0.7",
     "axios": "^1.2.0",
     "core-js": "^3.8.3",
     "json-server": "^0.17.1",

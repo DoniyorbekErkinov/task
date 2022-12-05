@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { h, resolveComponent} from "vue";
 import LoginPage from "@/pages/Login";
 
 const routes = [
@@ -20,12 +21,43 @@ const routes = [
         name: 'Students',
         path: '/students',
         component: () => import('@/pages/students/List')
+      },
+      {
+        name: 'Quizzes',
+        path: '/quizzes',
+        component: {
+          render() {
+            return h(resolveComponent("router-view"));
+          },
+        },
+        children: [
+          {
+            path: "",
+            name: "QuizzesList",
+            component: () => import('@/pages/Quiz/List'),
+          },
+          {
+            path: "/add-update-quiz",
+            name: "AddUpdateQuiz",
+            component: () => import('@/pages/Quiz/AddUpdateQuiz')
+          },
+          {
+            path: "/add-update-quiz/:id",
+            name: "AddUpdateQuizById",
+            component: () => import('@/pages/Quiz/AddUpdateQuiz')
+          }
+        ]
+      },
+      {
+        path: 'candidate-quiz',
+        name: 'CandidateQuiz',
+        component: () => import('@/pages/SolveQuiz/List')
       }
     ]
   },
   /**
   * Login
-  * NotFOund
+  * NotFound
   */
   {
     path: '/login',

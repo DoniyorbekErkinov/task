@@ -22,8 +22,7 @@ library.add(faArrowUp)
 const pinia = createPinia()
 import VueMultiselect from 'vue-multiselect'
 import 'vue-multiselect/dist/vue-multiselect.css'
-import { TokenService } from './store/storage.service'
-
+import global from "@/global/index";
 
 /**
  *  ADD DATA TO LOCALESTORAGE
@@ -41,4 +40,5 @@ app.use(pinia)
 app.use(i18)
 app.component('vue-multi-select', VueMultiselect)
 app.component('font-awesome-icon', FontAwesomeIcon)
+global(app)
 app.mount('#app')

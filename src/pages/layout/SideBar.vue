@@ -15,7 +15,7 @@
           <span class="ml-4 text-sm tracking-wide truncate">Dashboard</span>
         </router-link>
       </li>
-      <li>
+      <li v-if="user.role === 'admin'">
         <router-link to="/users" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <font-awesome-icon icon="fa-solid fa-users" />
@@ -23,12 +23,28 @@
           <span class="ml-4 text-sm tracking-wide truncate">Users</span>
         </router-link>
       </li>
-      <li>
+      <li v-if="user.role === 'admin'">
         <router-link to="/students" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
                 <span class="inline-flex justify-center items-center ml-4">
                   <font-awesome-icon icon="fa-solid fa-graduation-cap" />
                 </span>
           <span class="ml-4 text-sm tracking-wide truncate">Students</span>
+        </router-link>
+      </li>
+      <li v-if="user.role === 'admin'">
+        <router-link to="/quizzes" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                <span class="inline-flex justify-center items-center ml-4">
+                  <font-awesome-icon icon="fa-solid fa-graduation-cap" />
+                </span>
+          <span class="ml-4 text-sm tracking-wide truncate">Quiz</span>
+        </router-link>
+      </li>
+      <li v-if="user.role === 'candidate'">
+        <router-link to="/candidate-quiz" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                <span class="inline-flex justify-center items-center ml-4">
+                  <font-awesome-icon icon="fa-solid fa-graduation-cap" />
+                </span>
+          <span class="ml-4 text-sm tracking-wide truncate">Solve Quiz</span>
         </router-link>
       </li>
     </ul>
@@ -41,9 +57,18 @@
 <script>
 
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {TokenService} from "@/store/storage.service";
 export default {
   name: "SideBar.vue",
-  components: {FontAwesomeIcon}
+  components: {FontAwesomeIcon},
+  data() {
+    return {
+      user: {}
+    }
+  },
+  created() {
+    this.user = JSON.parse(TokenService.getUser())
+  }
 }
 </script>
 

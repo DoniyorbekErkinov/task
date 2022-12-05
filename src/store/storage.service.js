@@ -3,6 +3,7 @@ const USER = 'user'
 const USERS = 'users'
 const STUDENTS = 'students'
 const COURSES = 'courses'
+const QUIZ = 'quizzes'
 const TokenService = {
     setToken(accessToken) {
         localStorage.setItem(TOKEN_KEY, accessToken)
@@ -51,6 +52,15 @@ const TokenService = {
     },
     removeCourses() {
         return localStorage.removeItem(COURSES)
+    },
+    setQuiz(quizData) {
+        localStorage.setItem(QUIZ, JSON.stringify(quizData))
+    },
+    getQuiz() {
+        return localStorage.getItem(QUIZ)
+    },
+    removeQuiz() {
+        return localStorage.removeItem(QUIZ)
     },
 }
 export {TokenService}

@@ -9,7 +9,7 @@
         </div>
         <div class="form_child">
           <label>Phone</label>
-          <input required type="tel" placeholder="Phone"/>
+          <input required type="number" placeholder="Phone"/>
         </div>
         <div class="form_child">
           <label>Passport</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="form_child">
           <label>PINFL</label>
-          <input maxlength="14" minlength="14" pattern="[1-9]{14}" max="99999999999999" required type="number" placeholder="PINFL"/>
+          <input maxlength="14" minlength="14"   required type="number" placeholder="PINFL"/>
         </div>
         <div class="form_child">
           <label>Birth Date</label>

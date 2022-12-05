@@ -1,3 +1,7 @@
 export const locale = {
-  "message": "hello i18n !!"
+  types: {
+    single: "Bitta javob tanlash",
+    multiple: "Bittadan ortiq javob tanlash",
+    writing: "Insho yozish"
+  }
 }
