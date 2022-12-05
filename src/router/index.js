@@ -52,6 +52,11 @@ const routes = [
         path: 'candidate-quiz',
         name: 'CandidateQuiz',
         component: () => import('@/pages/SolveQuiz/List')
+      },
+      {
+        path: "/result-quiz",
+        name: "QuizResult",
+        component: () => import('@/pages/SolveQuiz/Result')
       }
     ]
   },

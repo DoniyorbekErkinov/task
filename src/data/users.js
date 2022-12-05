@@ -12,6 +12,7 @@ const users = [
         password: "candidate",
         canDeleted: false,
         role: "candidate",
+        solvedQuiz: false
     },
     {
         id: 3,

@@ -32,6 +32,15 @@ const Util = {
             default:
                 return (nameUz ?? nameRu ?? nameEn) || emptyValue;
         }
-    }
+    },
+    htmlToText: (value) => {
+        const div = document.createElement('div')
+        div.innerHTML = value
+        let text = ''
+        if(div){
+            text = div.textContent || div.innerText || ''
+        }
+        return text
+    },
 }
 export default Util;

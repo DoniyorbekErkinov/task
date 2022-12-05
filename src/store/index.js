@@ -29,6 +29,9 @@ export const useUserStore = defineStore("UsersStore", {
                         canDelete: el.canDeleted,
                         id: el.id
                     })
+                    if (el.role === 'candidate') {
+                        localStorage.setItem('solvedQuiz', el.solvedQuiz)
+                    }
                     TokenService.setUsers(this.users)
                     TokenService.setStudents(this.students)
                     TokenService.setCourses(this.courses)

@@ -47,6 +47,14 @@
           <span class="ml-4 text-sm tracking-wide truncate">Solve Quiz</span>
         </router-link>
       </li>
+      <li v-if="user.role === 'candidate' && user.solvedQuiz === true">
+        <router-link to="/result-quiz" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                <span class="inline-flex justify-center items-center ml-4">
+                  <font-awesome-icon icon="fa-solid fa-graduation-cap" />
+                </span>
+          <span class="ml-4 text-sm tracking-wide truncate">Result</span>
+        </router-link>
+      </li>
     </ul>
     <p class="mb-14 px-5 py-3 hidden md:block text-center text-xs">Copyright @2022</p>
   </div>

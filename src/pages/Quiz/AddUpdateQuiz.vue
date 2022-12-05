@@ -168,24 +168,7 @@
               Writing Task
             </p>
           </div>
-<!--          <div class="-mx-3 md:flex mb-2">-->
-<!--            <editor-->
-<!--                api-key="no-api-key"-->
-<!--                :init="{-->
-<!--         height: 500,-->
-<!--         menubar: false,-->
-<!--         plugins: [-->
-<!--           'advlist autolink lists link image charmap print preview anchor',-->
-<!--           'searchreplace visualblocks code fullscreen',-->
-<!--           'insertdatetime media table paste code help wordcount'-->
-<!--         ],-->
-<!--         toolbar:-->
-<!--           'undo redo | formatselect | bold italic backcolor | \-->
-<!--           alignleft aligncenter alignright alignjustify | \-->
-<!--           bullist numlist outdent indent | removeformat | help'-->
-<!--       }"-->
-<!--            />-->
-<!--          </div>-->
+
         </div>
       </div>
       <div class="flex justify-end">
